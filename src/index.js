@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./shared/App";
+import { Provider } from "react-redux";
+import store from "./redux/configureStore";
 
+//스토어를 주입할 수 있도록 프로바이더 사용
 ReactDOM.render(
-    <React.StrictMode>
+    <Provider store={store}>
         <App />
-    </React.StrictMode>,
+    </Provider>,
     document.getElementById("root")
 );
 

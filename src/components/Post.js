@@ -8,7 +8,7 @@ import { Grid, Image, Text } from "../elements";
 const Post = (props) => {
     return (
         <React.Fragment>
-            <Grid>
+            <Grid padding="20px 0">
                 <Grid is_flex>
                     <Image shape="circle" src={props.src}></Image>
                     <Text bold>{props.user_info.user_name}</Text>
