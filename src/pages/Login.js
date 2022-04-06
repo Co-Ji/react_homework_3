@@ -4,6 +4,7 @@ import { getCookie, setCookie, deleteCookie } from "../shared/Cookie";
 
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+import { emailCheck } from "../shared/common";
 //login()실행 시 리듀서로 데이터 보낼 수 있도록 필요한 것들 임포트
 const Login = (props) => {
     const dispatch = useDispatch();
@@ -23,6 +24,11 @@ const Login = (props) => {
     const login = () => {
         if (id === "" || pwd === "") {
             window.alert("아이디와 비밀번호를 모두 입력해주세요!");
+            return;
+        }
+
+        if (!emailCheck(id)) {
+            window.alert("이메일 형식이 맞지 않습니다!");
             return;
         }
 

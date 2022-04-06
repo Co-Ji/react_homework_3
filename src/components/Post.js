@@ -1,5 +1,7 @@
 import React from "react";
-import { Grid, Image, Text } from "../elements";
+import styled from "styled-components";
+import { Grid, Image, Text, Button } from "../elements";
+import { history } from "../redux/configureStore";
 // import Grid from "../elements/Grid";
 // import Image from "../elements/Image";
 // import Text from "../elements/Text";
@@ -10,28 +12,41 @@ const Post = (props) => {
         <React.Fragment>
             <Grid padding="20px 0">
                 <Grid is_flex>
-                    <Image shape="circle" src={props.src}></Image>
-                    <Text bold>{props.user_info.user_name}</Text>
-                    <Text>{props.insert_dt}</Text>
+                    <Post_info_grid style={{ justifyContent: "flex-start" }}>
+                        <Image
+                            shape="circle"
+                            src={props.user_info.user_profile}
+                        ></Image>
+                        <Text bold>{props.user_info.user_name}</Text>
+                    </Post_info_grid>
+                    <Post_info_grid style={{ justifyContent: "flex-end" }}>
+                        <Text>{props.insert_dayTime}</Text>
+                        {props.is_me && ( //props에서 is_me 가 넘어온 경우에는 버튼 보여준다.
+                            <Button
+                                onClick={() => {
+                                    history.push(`/write/${props.id}`);
+                                }}
+                                width="100px"
+                                margin="5px"
+                            >
+                                <Text color="#fff">수정</Text>
+                            </Button>
+                        )}
+                    </Post_info_grid>
                 </Grid>
                 <Grid padding="16px">
                     <Text>{props.contents}</Text>
                 </Grid>
                 <Grid>
-                    <Image shape="rectangle" src={props.src}></Image>
+                    <Image shape="rectangle" src={props.image_url}></Image>
                 </Grid>
                 <Grid padding="16px">
-                    <Text bold>댓글 {props.comment_cnt}개</Text>
+                    <Text bold>댓글 {props.comment_count}개</Text>
                 </Grid>
             </Grid>
-            <div>user profile / user name / insert_dt / is_me (edit )</div>
-            <div>contents</div>
-            <div>image</div>
-            <div>comment cnt</div>
         </React.Fragment>
     );
 };
-//is_flex는 무엇일까?
 
 Post.defaultProps = {
     user_info: {
@@ -44,7 +59,14 @@ Post.defaultProps = {
     contents: "뽀식이네요!",
     comment_cnt: 10,
     insert_dt: "2022-04-01 23:00:00",
+    is_me: false,
 };
 //프롭스가 없어 오류가 나거나 화면이 깨지는 걸 방지
+
+const Post_info_grid = styled.div`
+    width: 100%;
+    display: flex;
+    padding: 10px;
+`;
 
 export default Post;

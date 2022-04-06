@@ -6,11 +6,15 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "../redux/configureStore";
 
-import Header from "./Header";
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import { Grid } from "../elements";
+import PostWrite from "../pages/PostWrite";
+import PostDetail from "../pages/PostDetail";
+
+import Header from "./Header";
+import { Grid, Button } from "../elements";
+import Permit from "./Permit";
 
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
@@ -31,14 +35,38 @@ function App() {
 
     return (
         <React.Fragment>
-            <Grid width="1000px" margin="0 auto">
-                <Header></Header>
-                <ConnectedRouter history={history}>
+            <ConnectedRouter history={history}>
+                <Grid width="1000px" margin="0 auto">
+                    <Header></Header>
+
+                    {/* <ConnectedRouter history={history}> */}
                     <Route path="/" exact component={PostList}></Route>
                     <Route path="/login" exact component={Login}></Route>
                     <Route path="/signup" exact component={Signup}></Route>
-                </ConnectedRouter>
-            </Grid>
+                    <Route path="/write" exact component={PostWrite}></Route>
+                    <Route
+                        path="/write/:id"
+                        exact
+                        component={PostWrite}
+                    ></Route>
+                    <Route
+                        path="/post/:id"
+                        exact
+                        component={PostDetail}
+                    ></Route>
+                    {/* <Route patch="/Search" exact component={Search} /> */}
+                    {/* </ConnectedRouter> */}
+                </Grid>
+                <Permit>
+                    <Button
+                        is_float
+                        text="+"
+                        onClick={() => {
+                            history.push("/write");
+                        }}
+                    ></Button>
+                </Permit>
+            </ConnectedRouter>
         </React.Fragment>
     );
 }

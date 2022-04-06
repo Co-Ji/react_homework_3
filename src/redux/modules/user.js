@@ -44,10 +44,9 @@ const initialState = {
 //     };
 // };
 
-//파이어베이스에서 idm pwd 가져와서 setUser()액션
+//파이어베이스에서 id, pwd 가져와서 setUser()액션
 const loginFB = (id, pwd) => {
     return function (dispatch, getState, { history }) {
-        console.log(getState);
         auth.setPersistence(firebase.auth.Auth.Persistence.SESSION) //지속성 유지 (세션)
             .then((res) => {
                 //로그인 하면 지속할 수 있도록 세션에 저장하는 함수 setPersistence() 실행 후 로그인 실행
@@ -110,7 +109,6 @@ const signupFB = (id, pwd, user_name) => {
                 var errorMessage = error.message;
 
                 console.log(errorCode, errorMessage);
-                window.alert("아이디가 이메일형식이 아닙니다!");
                 // 오류가 날 경우 콘솔창에 표시(예를 들어 이메일형식이 아니거나)
             });
     };
@@ -154,7 +152,6 @@ export default handleActions(
                 setCookie("is_login", "success"); //Cookie.js거쳐서 쿠키에 로그인 정보 저장
                 draft.user = action.payload.user; //createAction을 사용해 중간에 payload가 추가됐다.
                 draft.is_login = true; // 스토어 state에 로그인아이디와 is_login = true를 저장 ?
-                console.log(state);
             }),
         [LOG_OUT]: (state, action) =>
             produce(state, (draft) => {

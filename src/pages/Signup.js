@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Text, Inputs, Button } from "../elements";
+import { emailCheck } from "../shared/common";
 
-//
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 
@@ -21,10 +21,10 @@ const Signup = (props) => {
             return;
         }
 
-        // if (!emailCheck(id)) {
-        //     window.alert("아이디가 이메일 형식이 아닙니다!");
-        //     return;
-        // }
+        if (!emailCheck(id)) {
+            window.alert("아이디가 이메일 형식이 아닙니다!");
+            return;
+        }
 
         if (pwd !== pwd_check) {
             window.alert("비밀번호가 일치하지 않습니다!");

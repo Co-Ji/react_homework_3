@@ -1,6 +1,8 @@
 //1.파이어베이스 설치 후 필요한 것 임포트
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
 
 //2. 홈페이지에서 sdk가져오기
 const firebaseConfig = {
@@ -17,8 +19,11 @@ firebase.initializeApp(firebaseConfig);
 
 //인증 선언?
 const auth = firebase.auth();
-
 //apiKey쓸 수 있도록 export
 const apiKey = firebaseConfig.apiKey;
+//파이어베이스 선언
+const firestore = firebase.firestore();
+//파이어베이스 스토리지 선언
+const storage = firebase.storage();
 
-export { auth, apiKey };
+export { auth, apiKey, firestore, storage };

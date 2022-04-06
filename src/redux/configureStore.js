@@ -5,12 +5,16 @@ import { createBrowserHistory } from "history";
 import { connectRouter } from "connected-react-router";
 
 import User from "./modules/user";
+import Post from "./modules/post";
+import Image from "./modules/image";
 
 //히스토리를 리덕스에서 사용하기 위해 export
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
     user: User, //리듀서?
+    post: Post,
+    image: Image,
     router: connectRouter(history), //히스토리를 리듀서와 묶어준다.
 });
 

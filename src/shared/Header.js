@@ -7,8 +7,10 @@ import { actionCreators as userActions } from "../redux/modules/user";
 
 import { history } from "../redux/configureStore";
 import { apiKey } from "./firebase";
+import { useHistory } from "react-router-dom";
 
 const Header = (props) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const is_login = useSelector((state) => state.user.is_login);
 
@@ -27,7 +29,9 @@ const Header = (props) => {
                     <Grid>
                         <BtnHome
                             type="button"
-                            onClick={() => console.log("홈")}
+                            onClick={() => {
+                                history.push("/");
+                            }}
                         >
                             <IconHome
                                 src="/public/images/iconHome.png"

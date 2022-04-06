@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const Grid = (props) => {
-    const { is_flex, width, margin, padding, bg, children } = props;
+    const { is_flex, width, margin, padding, bg, center, children } = props;
     const styles = {
         is_flex: is_flex,
         width: width,
         margin: margin,
         padding: padding,
         bg: bg,
+        center: center,
     };
     return (
         <React.Fragment>
@@ -25,7 +26,7 @@ Grid.defaultProps = {
     padding: false,
     margin: false,
     bg: false,
-    //백그라운드
+    center: false,
 };
 //프롭스로 넘긴 속성이 없을 경우를 대비(넘겨주는 프롭스에 따라 바뀔 것 들?)
 
@@ -39,6 +40,10 @@ const GridBox = styled.div`
     ${(props) =>
         props.is_flex
             ? `display: flex; align-items: center; justify-content: space-between; `
+            : ""}
+    ${(props) =>
+        props.center
+            ? `flex-direction: column; display: flex; align-items: center; `
             : ""}
 `;
 //기본으로 설정한 속성
