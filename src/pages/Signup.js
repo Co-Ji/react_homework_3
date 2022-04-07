@@ -35,58 +35,60 @@ const Signup = (props) => {
 
     return (
         <React.Fragment>
-            <Grid padding="0 16px">
-                <Grid margin="20px 0">
-                    <Text size="30px" bold>
-                        회원가입
-                    </Text>
-                </Grid>
-                <Grid margin="10px 0">
-                    <Text size="12px">아이디</Text>
-                    <Inputs
-                        label="아이디"
-                        placeholder="아이디는 이메일 형식으로 입력해주세요."
-                        onChange={(e) => {
-                            setId(e.target.value);
-                        }}
-                    />
-                </Grid>
-                <Grid margin="20px 0">
-                    <Text size="12px">닉네임</Text>
-                    <Inputs
-                        label="닉네임"
-                        placeholder="닉네임을 입력해주세요."
-                        onChange={(e) => {
-                            setUser_name(e.target.value);
-                        }}
-                    />
-                </Grid>
-                <Grid margin="20px 0">
-                    <Text size="12px">비밀번호</Text>
-                    <Inputs
-                        type="password"
-                        label="비밀번호"
-                        placeholder="비밀번호를 6자리 이상 입력해주세요."
-                        onChange={(e) => {
-                            setPwd(e.target.value);
-                        }}
-                    />
-                </Grid>
-                <Grid margin="20px 0">
-                    <Text size="12px">비밀번호 확인</Text>
-                    <Inputs
-                        type="password"
-                        label="비밀번호 확인"
-                        placeholder="비밀번호를 다시 입력해주세요."
-                        onChange={(e) => {
-                            setPwd_check(e.target.value);
-                        }}
-                    />
-                </Grid>
-                <Grid margin="50px 0">
-                    <Button width="100%" onClick={signup}>
-                        <Text color="white">회원가입하기</Text>
-                    </Button>
+            <Grid height="100vh">
+                <Grid height="700px" padding="0 16px" bg="#EFF6FF" center>
+                    <Grid margin="20px 0">
+                        <Text size="30px" bold>
+                            회원가입
+                        </Text>
+                    </Grid>
+                    <Grid margin="10px 0">
+                        <Text size="12px">아이디</Text>
+                        <Inputs
+                            label="아이디"
+                            placeholder="아이디는 이메일 형식으로 입력해주세요."
+                            onChange={(e) => {
+                                setId(e.target.value);
+                            }}
+                        />
+                    </Grid>
+                    <Grid margin="20px 0">
+                        <Text size="12px">닉네임</Text>
+                        <Inputs
+                            label="닉네임"
+                            placeholder="닉네임을 입력해주세요."
+                            onChange={(e) => {
+                                setUser_name(e.target.value);
+                            }}
+                        />
+                    </Grid>
+                    <Grid margin="20px 0">
+                        <Text size="12px">비밀번호</Text>
+                        <Inputs
+                            type="password"
+                            label="비밀번호"
+                            placeholder="비밀번호를 6자리 이상 입력해주세요."
+                            onChange={(e) => {
+                                setPwd(e.target.value);
+                            }}
+                        />
+                    </Grid>
+                    <Grid margin="20px 0">
+                        <Text size="12px">비밀번호 확인</Text>
+                        <Inputs
+                            type="password"
+                            label="비밀번호 확인"
+                            placeholder="비밀번호를 다시 입력해주세요."
+                            onChange={(e) => {
+                                setPwd_check(e.target.value);
+                            }}
+                        />
+                    </Grid>
+                    <Grid margin="50px 0">
+                        <Button width="100%" onClick={signup}>
+                            <Text color="white">회원가입하기</Text>
+                        </Button>
+                    </Grid>
                 </Grid>
             </Grid>
         </React.Fragment>

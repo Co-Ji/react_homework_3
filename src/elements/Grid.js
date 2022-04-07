@@ -2,7 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Grid = (props) => {
-    const { is_flex, width, margin, padding, bg, center, children } = props;
+    const {
+        is_flex,
+        width,
+        margin,
+        padding,
+        bg,
+        center,
+        children,
+        onClick,
+        height,
+    } = props;
     const styles = {
         is_flex: is_flex,
         width: width,
@@ -10,10 +20,13 @@ const Grid = (props) => {
         padding: padding,
         bg: bg,
         center: center,
+        height: height,
     };
     return (
         <React.Fragment>
-            <GridBox {...styles}>{children}</GridBox>
+            <GridBox {...styles} onClick={onClick}>
+                {children}
+            </GridBox>
         </React.Fragment>
     );
 };
@@ -27,12 +40,14 @@ Grid.defaultProps = {
     margin: false,
     bg: false,
     center: false,
+    height: "100%",
+    onClick: () => {},
 };
 //프롭스로 넘긴 속성이 없을 경우를 대비(넘겨주는 프롭스에 따라 바뀔 것 들?)
 
 const GridBox = styled.div`
     width: ${(props) => props.width};
-    height: 100%;
+    height: ${(props) => props.height};
     box-sizing: border-box;
     ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
     ${(props) => (props.margin ? `margin: ${props.margin};` : "")}

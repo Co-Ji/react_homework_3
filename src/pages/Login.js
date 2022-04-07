@@ -38,38 +38,40 @@ const Login = (props) => {
 
     return (
         <React.Fragment>
-            <Grid padding="0 16px">
-                <Grid margin="20px 0">
-                    <Text size="30px" bold>
-                        로그인
-                    </Text>
-                </Grid>
-                <Grid padding="10px 10px 0 0">
-                    <Text size="12px">아이디</Text>
-                    <Inputs
-                        label="아이디"
-                        placeholder="아이디는 이메일 형식으로 입력해주세요"
-                        onChange={changeId}
-                    />
-                </Grid>
-                <Grid padding="10px 10px 0 0">
-                    <Text size="12px">비밀번호</Text>
-                    <Inputs
-                        type="password"
-                        label="비밀번호"
-                        placeholder="비밀번호를 입력해주세요"
-                        onChange={changePwd}
-                    />
-                </Grid>
-                <Grid margin="50px 0">
-                    <Button
-                        width="100%"
-                        onClick={() => {
-                            login();
-                        }}
-                    >
-                        <Text color="white">로그인하기</Text>
-                    </Button>
+            <Grid height="100vh">
+                <Grid height="500px" padding="0 16px" bg="#EFF6FF" center>
+                    <Grid margin="20px 0">
+                        <Text size="30px" bold>
+                            로그인
+                        </Text>
+                    </Grid>
+                    <Grid padding="10px 10px 0 0">
+                        <Text size="12px">아이디</Text>
+                        <Inputs
+                            label="아이디"
+                            placeholder="아이디는 이메일 형식으로 입력해주세요"
+                            onChange={changeId}
+                        />
+                    </Grid>
+                    <Grid padding="10px 10px 0 0">
+                        <Text size="12px">비밀번호</Text>
+                        <Inputs
+                            type="password"
+                            label="비밀번호"
+                            placeholder="비밀번호를 입력해주세요"
+                            onChange={changePwd}
+                        />
+                    </Grid>
+                    <Grid margin="50px 0">
+                        <Button
+                            width="100%"
+                            onClick={() => {
+                                login();
+                            }}
+                        >
+                            <Text color="white">로그인하기</Text>
+                        </Button>
+                    </Grid>
                 </Grid>
             </Grid>
         </React.Fragment>

@@ -35,7 +35,7 @@ const PostWrite = (props) => {
         if (is_edit) {
             dispatch(imageActions.setPreview(for_edit_post.image_url));
         }
-    });
+    }, []);
 
     const [contents, setContents] = React.useState(
         for_edit_post ? for_edit_post.contents : ""
@@ -57,21 +57,29 @@ const PostWrite = (props) => {
 
     if (!is_login) {
         return (
-            <Grid margin="100px 0px" padding="16px" center>
-                <Text size="20px">로그인 후 글을 작성해 주세요!</Text>
-                <Button
-                    onClick={() => {
-                        history.replace("/login");
-                    }}
+            <Grid height="100vh">
+                <Grid
+                    height="160px"
+                    margin="100px 0px"
+                    padding="16px"
+                    bg="#EFF6FF"
+                    center
                 >
-                    <Text color="#fff">로그인 하러 가기</Text>
-                </Button>
+                    <Text size="20px">로그인 후 글을 작성해 주세요!</Text>
+                    <Button
+                        onClick={() => {
+                            history.replace("/login");
+                        }}
+                    >
+                        <Text color="#fff">로그인 하러 가기</Text>
+                    </Button>
+                </Grid>
             </Grid>
         );
     }
     return (
         <React.Fragment>
-            <Grid padding="16px">
+            <Grid padding="16px" bg="#EFF6FF">
                 <Text margin="0px" size="36px" bold>
                     {is_edit ? "게시글 수정" : "게시글 작성"}
                 </Text>
@@ -80,7 +88,7 @@ const PostWrite = (props) => {
 
             <Grid>
                 <Grid padding="16px">
-                    <Text margin="0px" size="24px" bold>
+                    <Text color="#aaa" margin="0px" size="24px" bold>
                         미리보기
                     </Text>
                 </Grid>

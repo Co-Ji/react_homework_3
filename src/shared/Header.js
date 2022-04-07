@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Grid, Button, Text } from "../elements";
+import { Grid, Button, Text, Line } from "../elements";
 import { getCookie, deleteCookie } from "../shared/Cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
@@ -25,35 +25,29 @@ const Header = (props) => {
     if (is_login && is_session) {
         return (
             <React.Fragment>
-                <Grid is_flex padding="30px 16px">
-                    <Grid>
-                        <BtnHome
-                            type="button"
-                            onClick={() => {
-                                history.push("/");
-                            }}
-                        >
-                            <IconHome
-                                src="/public/images/iconHome.png"
-                                alt="homeIcon"
-                            />
-                        </BtnHome>
-                    </Grid>
-                    <Grid is_flex>
-                        <Button onClick={() => console.log("내정보버튼")}>
-                            <Text color="white">내정보</Text>
-                        </Button>
-                        <Button onClick={() => console.log("알림버튼")}>
-                            <Text color="white">알림</Text>
-                        </Button>
-                        <Button
-                            onClick={() => {
-                                dispatch(userActions.logoutFB());
-                            }}
-                        >
-                            <Text color="white">로그아웃</Text>
-                        </Button>
-                    </Grid>
+                <Grid is_flex padding="30px 10px" bg="#EFF6FF">
+                    <Button
+                        width="60px"
+                        onClick={() => {
+                            history.push("/");
+                        }}
+                    >
+                        <Text color="#fff">홈</Text>
+                    </Button>
+
+                    <Button
+                        width="50%"
+                        max_width="240px"
+                        margin="5px"
+                        onClick={() => {
+                            dispatch(userActions.logoutFB());
+                        }}
+                    >
+                        <Text color="white">로그아웃</Text>
+                    </Button>
+                </Grid>
+                <Grid margin="25px 0">
+                    <Line width="98%" border="2px dotted #8c8c8c" />
                 </Grid>
             </React.Fragment>
         );
@@ -61,22 +55,22 @@ const Header = (props) => {
 
     return (
         <React.Fragment>
-            <Grid is_flex padding="30px 16px">
+            <Grid is_flex padding="30px 16px" bg="#EFF6FF">
                 <Grid>
-                    <BtnHome
-                        type="button"
+                    <Button
+                        width="60px"
                         onClick={() => {
                             history.push("/");
                         }}
                     >
-                        <IconHome
-                            src="/public/images/iconHome.png"
-                            alt="homeIcon"
-                        />
-                    </BtnHome>
+                        <Text color="#fff">홈</Text>
+                    </Button>
                 </Grid>
                 <Grid is_flex>
                     <Button
+                        width="50%"
+                        max_width="240px"
+                        margin="0 10px"
                         onClick={() => {
                             history.push("/signup");
                         }}
@@ -84,6 +78,8 @@ const Header = (props) => {
                         <Text color="white">회원가입</Text>
                     </Button>
                     <Button
+                        width="50%"
+                        max_width="240px"
                         onClick={() => {
                             history.push("/login");
                         }}
@@ -92,6 +88,9 @@ const Header = (props) => {
                     </Button>
                 </Grid>
             </Grid>
+            <Grid margin="0 0 50px 0">
+                <Line width="98%" border="2px dotted #8c8c8c" />
+            </Grid>
         </React.Fragment>
     );
 };
@@ -99,9 +98,6 @@ const Header = (props) => {
 const BtnHome = styled.button`
     width: 40px;
     height: 40px;
-`;
-const IconHome = styled.img`
-    // background: red;
 `;
 
 export default Header;

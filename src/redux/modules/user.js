@@ -58,7 +58,8 @@ const loginFB = (id, pwd) => {
                             setUser({
                                 id: id,
                                 user_name: user.user.displayName,
-                                user_profile: "",
+                                user_profile:
+                                    "https://images.mypetlife.co.kr/content/uploads/2019/12/09151959/%EC%8B%AC%EC%8B%AC%ED%95%9C_%EA%B3%A0%EC%96%91%EC%9D%B42.png",
                                 uid: user.user.uid, //uid는 고유값 (나중에 필요할 수도 있음)
                             })
                         );
@@ -93,7 +94,8 @@ const signupFB = (id, pwd, user_name) => {
                             setUser({
                                 id: id,
                                 user_name: user_name,
-                                user_profile: "",
+                                user_profile:
+                                    "https://images.mypetlife.co.kr/content/uploads/2019/12/09151959/%EC%8B%AC%EC%8B%AC%ED%95%9C_%EA%B3%A0%EC%96%91%EC%9D%B42.png",
                                 uid: user.user.uid,
                             })
                             //유저정보 업뎃까지 성공 후 setUser액션을 디스패치한다.
@@ -123,7 +125,8 @@ const loginCheckFB = () => {
                     setUser({
                         id: user.email,
                         user_name: user.displayName,
-                        user_profile: "",
+                        user_profile:
+                            "https://images.mypetlife.co.kr/content/uploads/2019/12/09151959/%EC%8B%AC%EC%8B%AC%ED%95%9C_%EA%B3%A0%EC%96%91%EC%9D%B42.png",
                         uid: user.uid,
                     })
                 );

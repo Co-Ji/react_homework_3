@@ -54,7 +54,7 @@ export default handleActions(
 
         [SET_PREVIEW]: (state, action) =>
             produce(state, (draft) => {
-                console.log(action.payload.preview);
+                console.log("사진수정", action.payload.preview);
                 draft.preview = action.payload.preview;
             }),
     },

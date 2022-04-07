@@ -143,13 +143,12 @@ const editPostFB = (post_id = null, post = {}) => {
             return;
         }
         const _image = getState().image.preview;
+        console.log("사진수정", _image);
 
         const _post_index = getState().post.list.findIndex(
             (post) => post.id === post_id
         );
         const _post = getState().post.list[_post_index];
-
-        console.log(_post);
 
         const postDB = firestore.collection("post");
         //======글만 수정하는 경우
@@ -163,11 +162,14 @@ const editPostFB = (post_id = null, post = {}) => {
                 });
             // ======글, 사진 모두 수정하는 경우
         } else {
+            console.log("사진수정", _image);
             const user_id = getState().user.user.uid;
             const _upload = storage
                 .ref(`images/${user_id}_${new Date().getTime()}`)
                 .putString(_image, "data_url");
+
             //업로드: ref로 파일이름을 가져오고(파일이름은 유저+시간), putString에 파일내용과 타입을 적는다.(파이어베이스 공식문서 참고)
+            console.log("사진수정", _upload);
             _upload.then((snapshot) => {
                 snapshot.ref
                     .getDownloadURL()

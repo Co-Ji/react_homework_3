@@ -25,7 +25,7 @@ const Upload = (props) => {
         reader.readAsDataURL(file); // 선택한 파일객체를 읽는 내장함수 readAsDataURL()
 
         reader.onloadend = () => {
-            // console.log(reader.result);
+            console.log(reader.result);
             dispatch(imageActions.setPreview(reader.result)); //결과를 디스패치
         };
     };

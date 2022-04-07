@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Text from "./Text";
 
 const Button = (props) => {
-    const { width, margin, children, onClick, is_float, text } = props;
+    const { width, margin, max_width, children, onClick, is_float, text } =
+        props;
     //게시글 쓰기 버튼
     if (is_float) {
         return (
@@ -18,6 +19,7 @@ const Button = (props) => {
     const styles = {
         width: width,
         margin: margin,
+        max_width: max_width,
     };
 
     return (
@@ -29,6 +31,7 @@ const Button = (props) => {
 
 Button.defaultProps = {
     width: "240px",
+    max_width: false,
     margin: false,
     children: null,
     onClick: () => {},
@@ -38,6 +41,7 @@ Button.defaultProps = {
 const Btn = styled.button`
     width: ${(props) => props.width};
     margin: ${(props) => props.margin};
+    max-width: ${(props) => props.max_width};
     height: 40px;
     border-radius: 5px;
     background: #1b9cfc;

@@ -34,9 +34,9 @@ function App() {
     }, []);
 
     return (
-        <React.Fragment>
+        <div style={{ background: "black" }}>
             <ConnectedRouter history={history}>
-                <Grid width="1000px" margin="0 auto">
+                <Grid width="50vw" margin="0 auto">
                     <Header></Header>
 
                     {/* <ConnectedRouter history={history}> */}
@@ -67,7 +67,7 @@ function App() {
                     ></Button>
                 </Permit>
             </ConnectedRouter>
-        </React.Fragment>
+        </div>
     );
 }
 

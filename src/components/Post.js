@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Grid, Image, Text, Button } from "../elements";
+import { Grid, Image, Text, Button, Line } from "../elements";
 import { history } from "../redux/configureStore";
 // import Grid from "../elements/Grid";
 // import Image from "../elements/Image";
@@ -43,6 +43,7 @@ const Post = (props) => {
                 <Grid padding="16px">
                     <Text bold>댓글 {props.comment_count}개</Text>
                 </Grid>
+                <Grid bg="black" width="100%" height="50px"></Grid>
             </Grid>
         </React.Fragment>
     );
